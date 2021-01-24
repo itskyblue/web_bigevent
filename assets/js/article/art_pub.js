@@ -105,9 +105,13 @@ $(function () {
         if (res.status !== 0) {
           return layer.msg("发布文章失败！");
         }
-        layer.msg("发布文章成功！");
-        // 发布文章成功后，跳转到文章列表页面
-        location.href = "/article/art_list.html";
+        layer.msg("发布文章成功！", { time: 1000 }, function () {
+          // 发布文章成功后，跳转到文章列表页面
+          location.href = "/article/art_list.html";
+
+          $(".lb", parent.document).addClass("layui-this");
+          $(".fb", parent.document).removeClass("layui-this");
+        });
       },
     });
   }
